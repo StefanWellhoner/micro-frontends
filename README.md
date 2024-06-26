@@ -43,5 +43,5 @@ This is a small sample application which has a container application, and 2 remo
 
 ## Whats next
 
-[x] Create an API and database where messages are sent to and stored
-[] Inject data coming from each micro-frontend into a single table on `container`
+- [x] Create an API and database where messages are sent to and stored ([#1](https://github.com/StefanWellhoner/micro-frontends/pull/1))
+- [ ] Inject data coming from each micro-frontend into a single table on `container`
