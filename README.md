@@ -27,3 +27,7 @@ This is a small sample application which has a container application, and 2 remo
     - Receiver
     - Messanger
     - Container
+
+## Whats next
+
+[ ] Create an API and database where messages are sent to and stored
