@@ -4,7 +4,18 @@ import { FC } from "react";
 const Messanger: FC = () => {
   const [message, setMessage] = React.useState<string>("");
 
-  const dispatchEvent = () => {
+  const saveMessage = async () => {
+    await fetch("http://localhost:3000/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ content: message }),
+    });
+  };
+
+  const dispatchEvent = async () => {
+    await saveMessage();
     const event = new CustomEvent("microfrontend:messange:send", {
       detail: message,
     });

@@ -1,12 +1,35 @@
 import React from "react";
 import { FC } from "react";
 
+type MessageResponse = {
+  id: number;
+  content: string;
+  created_at: string;
+  updated_at: string;
+};
+
 const Receiver: FC = () => {
-  const [messages, setMessages] = React.useState<string[]>([]);
+  const [messages, setMessages] = React.useState<MessageResponse[]>([]);
+
+  const getMessages = async (): Promise<MessageResponse[]> => {
+    const response = await fetch("http://localhost:3000/messages", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const messages = (await response.json()) as MessageResponse[];
+    return messages;
+  };
 
   React.useEffect(() => {
+    getMessages().then((messages: MessageResponse[]) => {
+      setMessages(messages);
+    });
+
     const listener = (e: CustomEvent<string>) => {
-      setMessages((prev) => [...prev, e.detail]);
+      getMessages().then((messages: MessageResponse[]) => {
+        setMessages(messages);
+      });
     };
 
     window.addEventListener("microfrontend:messange:send" as any, listener);
@@ -25,14 +48,8 @@ const Receiver: FC = () => {
       <textarea
         className="bg-gray-100 rounded-sm px-2 py-2 text-lg resize-none w-full h-48 focus:outline-none text-gray-600"
         readOnly
-        value={messages.join("\n")}
+        value={messages.map((m) => `Message: ${m.content}\tSent: ${m.created_at}`).join("\n")}
       />
-      <button
-        className="bg-red-500 text-white rounded-md w-fit px-4 py-2 font-semibold"
-        onClick={() => setMessages([])}
-      >
-        Clear
-      </button>
     </div>
   );
 };
