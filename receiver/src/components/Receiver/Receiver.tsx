@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FC } from "react";
 
 type MessageResponse = {
@@ -9,7 +9,7 @@ type MessageResponse = {
 };
 
 const Receiver: FC = () => {
-  const [messages, setMessages] = React.useState<MessageResponse[]>([]);
+  const [messages, setMessages] = useState<MessageResponse[]>([]);
 
   const getMessages = async (): Promise<MessageResponse[]> => {
     const response = await fetch("http://localhost:3000/messages", {
@@ -21,13 +21,14 @@ const Receiver: FC = () => {
     return messages;
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     getMessages().then((messages: MessageResponse[]) => {
       setMessages(messages);
     });
 
     const listener = (e: CustomEvent<string>) => {
       getMessages().then((messages: MessageResponse[]) => {
+        console.log(e.detail); // Payload from event
         setMessages(messages);
       });
     };

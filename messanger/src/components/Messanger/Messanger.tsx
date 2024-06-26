@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { FC } from "react";
 
 const Messanger: FC = () => {
-  const [message, setMessage] = React.useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
 
   const saveMessage = async () => {
+    await delay(1000);
     await fetch("http://localhost:3000/messages", {
       method: "POST",
       headers: {
@@ -15,25 +19,30 @@ const Messanger: FC = () => {
   };
 
   const dispatchEvent = async () => {
+    setLoading(true);
     await saveMessage();
     const event = new CustomEvent("microfrontend:messange:send", {
-      detail: message,
+      detail: message, // Payload sent with event
     });
-    window.dispatchEvent(event);
+    window.dispatchEvent(event); // Dispatch the event
+    setMessage("");
+    setLoading(false);
   };
 
   return (
     <div className="bg-red-300 flex flex-col gap-2 items-center px-2 py-4">
       <h1 className="text-2xl font-bold">Messanger</h1>
       <input
-        className="bg-gray-100 rounded-sm px-2 py-2 text-lg w-full"
+        className="bg-gray-50 rounded-sm px-2 py-2 text-lg w-full disabled:bg-gray-300 disabled:cursor-not-allowed"
         value={message}
+        disabled={loading}
         onChange={(e) => setMessage(e.currentTarget.value)}
       />
       <div className="items-center justify-center">
         <button
-          className="bg-blue-500 text-white rounded-md w-fit px-4 py-2 font-semibold"
+          className="bg-blue-500 text-white rounded-md w-fit px-4 py-2 font-semibold disabled:bg-gray-300 disabled:cursor-not-allowed"
           onClick={dispatchEvent}
+          disabled={loading || message === ""}
         >
           Send
         </button>

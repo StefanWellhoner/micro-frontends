@@ -24,21 +24,17 @@ This is a small sample application which has a container application, and 2 remo
 
 ## Getting Started
 1. Pull Repository
-2. Navigate to the `api` directory and enter the following command
-   ```bash
-   docker-compose run messages_api rails db:create db:migrate
-   ```
-3. Execute `docker-compose up`
-4. Run the following command on the `container`, `messanger`, and `receiver` directories
+2. Run the following command on the `container`, `messanger`, and `receiver` directories
     ```bash
     npm install
     ```
-5. Run the applications on you local in the following order
-    - Receiver
-    - Messanger
-    - Container
+3. In the root directory execute the same command
     ```bash
-    npm start
+    npm install
+    ```
+4. To start the entire system run this is the root directory
+    ```bash
+    npm run start:all
     ```
 
 ## Whats next

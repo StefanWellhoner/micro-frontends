@@ -1,0 +1,13 @@
+{
+    "name": "root",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "preinstall": "docker-compose -f ./api/docker-compose.yml run messages_api rails db:create db:migrate",
+      "start:all": "node start-all.js"
+    },
+    "devDependencies": {
+      "concurrently": "^6.0.0"
+    }
+  }
+  
