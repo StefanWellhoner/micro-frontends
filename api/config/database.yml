@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+
+development:
+  <<: *default
+  database: messages_api_development
+
+test:
+  <<: *default
+  database: messages_api_test
+
+production:
+  <<: *default
+  database: messages_api_production
