@@ -11,7 +11,7 @@ This is a small sample application which has a container application, and 2 remo
 3. **Receiver** - Listens for CustomEvents sent from the **Messanger**
     > Subscribe: *microfrontend:messange:send*
 
-![Flow of the application](https://github.com/StefanWellhoner/micro-frontends/tree/master/docs/micro-frontends.drawio.png)
+![Flow of the application](/docs/micro-frontends.drawio.png)
 
 ## Technologies
 - **[React](https://react.dev/)**
