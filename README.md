@@ -1,11 +1,12 @@
 # micro-frontends
 
 ## Description
-This micro-monolith repository shows how you can create micro-frontends using module-federations. Cross micro-frontend communications are done using Custom DOM events.
+This Mono-repository shows how you can create micro-frontends using module-federations. Cross micro-frontend communications are done using Custom DOM events.
 
 This is a small sample application which has a container application, and 2 remote micro-frontends.
 
 1. **Container** - The host application to which the micro-frontends are injected
+    > Subscribe: *microfrontend:messange:send*  
 2. **Messanger** - Sends CustomEvents with a message payload
     > Publish:  *microfrontend:messange:send*
 3. **Receiver** - Listens for CustomEvents sent from the **Messanger**
