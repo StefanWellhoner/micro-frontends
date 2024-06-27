@@ -30,10 +30,10 @@ const Messanger: FC = () => {
   };
 
   return (
-    <div className="bg-red-300 flex flex-col gap-2 items-center px-2 py-4">
-      <h1 className="text-2xl font-bold">Messanger</h1>
+    <div className="bg-gray-50 flex flex-col gap-2 items-center px-2 py-4 shadow-sm">
+      <h1 className="text-2xl font-bold text-gray-600">Messanger</h1>
       <input
-        className="bg-gray-50 rounded-sm px-2 py-2 text-lg w-full disabled:bg-gray-300 disabled:cursor-not-allowed"
+        className="bg-white rounded-sm px-2 py-2 text-lg w-full disabled:bg-gray-300 disabled:cursor-not-allowed"
         value={message}
         disabled={loading}
         onChange={(e) => setMessage(e.currentTarget.value)}

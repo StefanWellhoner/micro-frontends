@@ -44,8 +44,8 @@ const Receiver: FC = () => {
   }, []);
 
   return (
-    <div className="bg-blue-300 flex flex-col gap-2 items-center px-2 py-4">
-      <h1 className="text-2xl font-bold">Receiver</h1>
+    <div className="bg-gray-50 flex flex-col gap-2 items-center px-2 py-4 shadow-sm">
+      <h1 className="text-2xl font-bold text-gray-600">Receiver</h1>
       <textarea
         className="bg-gray-100 rounded-sm px-2 py-2 text-lg resize-none w-full h-48 focus:outline-none text-gray-600"
         readOnly
