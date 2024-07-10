@@ -41,11 +41,11 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "receiver",
+      name: "mailusageFE",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./ReceiverApp": "./src/App.tsx",
+        "./MailUsageTable" :'./src/components/MailUsageTable/MailUsageTable.tsx',
       },
       shared: {
         ...deps,

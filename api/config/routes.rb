@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   get "/messages" => "messages#index"
   post "/messages" => "messages#create"
+
+  get "/instance/storage" => "storages#show"
+  get "/web/storage" => "storages#show"
+  get "mail/storage" => "storages#show"
 end

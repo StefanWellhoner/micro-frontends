@@ -4,13 +4,12 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const Dotenv = require('dotenv-webpack');
 const deps = require("./package.json").dependencies;
 const _plugins = [new ModuleFederationPlugin({
-  name: "container",
+  name: "webusageFE",
   filename: "remoteEntry.js",
-  remotes: {
-    webusageFE: "webusageFE@http://localhost:8081/remoteEntry.js",
-    mailusageFE: "mailusageFE@http://localhost:8082/remoteEntry.js",
+  remotes: {},
+  exposes: {
+    "./WebUsageTable" :'./src/components/WebUsageTable/WebUsageTable.tsx',
   },
-  exposes: {},
   shared: {
     ...deps,
     react: {
@@ -28,13 +27,13 @@ const _plugins = [new ModuleFederationPlugin({
 _plugins.unshift(MillionLint.webpack())
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:8080/"
+    publicPath: "http://localhost:8081/"
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"]
   },
   devServer: {
-    port: 8080,
+    port: 8081,
     historyApiFallback: true
   },
   module: {

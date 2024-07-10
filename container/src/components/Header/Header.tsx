@@ -3,9 +3,15 @@ import { FC } from "react";
 
 const Header: FC = () => {
   return (
-    <nav className="flex w-full bg-[#F13E5F] h-16">
-      <div className="flex-1 content-center justify-center self-center">
-        <h1 className="text-white text-2xl text-center">Micro-frontends</h1>
+    <nav className="flex w-full bg-white h-16 content-center justify-center items-center px-6 shadow-md">
+      <div className="font-semibold">{"Back"}</div>
+      <div className="flex-1">
+        <h1 className="font-bold text-center">Disk Usage</h1>
+        <h2 className="text-sm text-center">domain@example.com</h2>
+      </div>
+      <div className="flex items-center gap-2">
+        <h2 className="font-semibold lg:block md:block sm:block hidden">John Doe</h2>
+        <div className="w-10 h-10 rounded-full bg-gray-200"></div>
       </div>
     </nav>
   );
@@ -13,4 +19,4 @@ const Header: FC = () => {
 
 Header.displayName = "Header";
 
-export default Header;
+export default React.memo(Header);

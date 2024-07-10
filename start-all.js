@@ -16,8 +16,8 @@ exec('docker-compose -f ./api/docker-compose.yml up -d', (err, stdout, stderr) =
  * Start all the micro-frontends
  */
 concurrently([
-  { command: 'npm start --prefix ./receiver', name: 'receiver', prefixColor: 'blue' },
-  { command: 'npm start --prefix ./messanger', name: 'messanger', prefixColor: 'green' },
+  { command: 'npm start --prefix ./mailusage-fe', name: 'mailusage', prefixColor: 'blue' },
+  { command: 'npm start --prefix ./webusage-fe', name: 'webusage', prefixColor: 'green' },
   { command: 'npm start --prefix ./container', name: 'container', prefixColor: 'magenta' }
 ]).then(success, failure);
 
