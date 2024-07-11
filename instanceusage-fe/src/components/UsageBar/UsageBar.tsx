@@ -71,7 +71,7 @@ const UsageBar: FC = () => {
   const remainingSpace = totalValue - usedSpace;
 
   return (
-    <div className="rounded-md p-4 shadow-md w-full lg:w-10/12 md:w-6/12 bg-white border-4 border-red-500">
+    <div className="rounded-md p-4 shadow-md w-full lg:w-10/12 bg-white border-4 border-red-500">
       <div className="flex justify-between mb-2 items-center">
         <h2 className="text-lg font-semibold">
           Disk Usage{" "}

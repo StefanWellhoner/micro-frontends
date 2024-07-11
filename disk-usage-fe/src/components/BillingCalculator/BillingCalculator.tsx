@@ -44,9 +44,9 @@ const BillingCalculator = () => {
             <td>Usage</td>
             <td className="font-semibold text-right">{convertBytes(used)}</td>
           </tr>
-          <tr>
-            <td className="text-red-500">Overusage</td>
-            <td className="font-semibold text-right text-red-500">{convertBytes(used - quota)}</td>
+          <tr className="text-red-500">
+            <td>Overusage</td>
+            <td className="font-semibold text-right">{convertBytes(used - quota)}</td>
           </tr>
           <tr>
             <td>Rate per MB over quota</td>
