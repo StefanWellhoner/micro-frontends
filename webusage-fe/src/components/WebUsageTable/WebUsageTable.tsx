@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "../../index.scss";
 import { convertBytes } from "../../utils/conversion";
+import { web } from "../../data/web-data";
 
 type WebFile = {
   name: string;
@@ -17,16 +18,14 @@ const WebUsageTable = () => {
 
   const sortFiles = (files: WebFile[]): WebFile[] => {
     return files.sort((a, b) => b.size - a.size);
-  }
+  };
 
   useEffect(() => {
     getWebFiles();
   }, []);
 
   const getWebFiles = async () => {
-    const response = await fetch("https://micro-frontends.free.beeceptor.com/api/web/storage");
-    if (!response.ok) throw new Error("Failed to fetch web usage");
-    const files = await response.json();
+    const files: WebFile[] = web;
 
     setTotalSize(calculateTotalSize(files));
 
@@ -34,9 +33,9 @@ const WebUsageTable = () => {
   };
 
   return (
-    <div className="rounded-md px-4 shadow-md w-full">
+    <div className="rounded-md px-4 shadow-md w-full border-4 border-green-500">
       <div className="flex justify-between items-center mb-2">
-        <h1 className="text-xl font-semibold">Web Usage Table</h1>
+        <h1 className="text-xl font-semibold">Web Content</h1>
         <p className="leading-8 font-semibold">
           Total Size:{" "}
           <span className="font-normal">{convertBytes(totalSize)}</span>
@@ -52,9 +51,7 @@ const WebUsageTable = () => {
       <table className="table-auto w-full">
         <thead>
           <tr className=" border-y-[1px]">
-            <th className="px-4 h-14 text-left">
-              File/Folder name
-            </th>
+            <th className="px-4 h-14 text-left">Name</th>
             <th className="px-4 text-center">Size</th>
           </tr>
         </thead>

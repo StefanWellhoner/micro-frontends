@@ -23,8 +23,7 @@
     "noFallthroughCasesInSwitch": true // Report errors for fallthrough cases in switch statement
   },
   "include": [
-    "src",
-    "declarations.d.ts" // *** The files TypeScript should type check ***
-, "../instanceusage-fe/src/data"  ],
+    "src/**/*" // *** The files TypeScript should type check ***
+  ],
   "exclude": ["node_modules", "build", "dist"]
 }

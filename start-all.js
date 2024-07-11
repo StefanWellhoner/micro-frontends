@@ -18,7 +18,8 @@ exec('docker-compose -f ./api/docker-compose.yml up -d', (err, stdout, stderr) =
 concurrently([
   { command: 'npm start --prefix ./mailusage-fe', name: 'mailusage', prefixColor: 'blue' },
   { command: 'npm start --prefix ./webusage-fe', name: 'webusage', prefixColor: 'green' },
-  { command: 'npm start --prefix ./container', name: 'container', prefixColor: 'magenta' }
+  { command: 'npm start --prefix ./instanceusage-fe', name: 'instanceusage', prefixColor: 'red' },
+  { command: 'npm start --prefix ./container', name: 'container', prefixColor: 'yellow' }
 ]).then(success, failure);
 
 function success() {

@@ -1,10 +1,10 @@
 {
-  "name": "mailusage-fe",
+  "name": "instanceusage-fe",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
-    "build:start": "cd dist && PORT=8082 npx serve",
+    "build:start": "cd dist && PORT=8083 npx serve",
     "start": "webpack serve --mode development",
     "start:live": "webpack serve --open --mode development --live-reload --hot"
   },

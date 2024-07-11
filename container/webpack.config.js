@@ -9,6 +9,7 @@ const _plugins = [new ModuleFederationPlugin({
   remotes: {
     webusageFE: "webusageFE@http://localhost:8081/remoteEntry.js",
     mailusageFE: "mailusageFE@http://localhost:8082/remoteEntry.js",
+    instanceusageFE: "instanceusageFE@http://localhost:8083/remoteEntry.js"
   },
   exposes: {},
   shared: {

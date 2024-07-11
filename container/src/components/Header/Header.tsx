@@ -3,7 +3,7 @@ import { FC } from "react";
 
 const Header: FC = () => {
   return (
-    <nav className="flex w-full bg-white h-16 content-center justify-center items-center px-6 shadow-md">
+    <nav className="flex w-full bg-white h-20 content-center justify-center items-center px-6 shadow-md">
       <div className="font-semibold">{"Back"}</div>
       <div className="flex-1">
         <h1 className="font-bold text-center">Disk Usage</h1>
